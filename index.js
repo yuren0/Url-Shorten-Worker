@@ -9,8 +9,8 @@ custom_link:false,//Allow users to customize the short url.
 const html404 = `<!DOCTYPE html>
 <body>
   <h1>404 Not Found.</h1>
-  <p>The url you visit is not found.</p>
-  <a href="https://github.com/xyTom/Url-Shorten-Worker/" target="_self">Fork me on GitHub</a>
+  <p>请确定URL是否正确.</p>
+  <a href="https://github.com/yuren0/Url-Shorten-Worker/" target="_self">关注翻译版GitHub</a>
 </body>`
 
 let response_header={
@@ -87,7 +87,7 @@ async function handleRequest(request) {
     let req=await request.json()
     console.log(req["url"])
     if(!await checkURL(req["url"])){
-    return new Response(`{"status":500,"key":": Error: Url illegal."}`, {
+    return new Response(`{"status":500,"key":": Error: 非法地址."}`, {
       headers: response_header,
     })}
     let stat,random_key
@@ -111,7 +111,7 @@ async function handleRequest(request) {
       headers: response_header,
     })
     }else{
-      return new Response(`{"status":200,"key":": Error:Reach the KV write limitation."}`, {
+      return new Response(`{"status":200,"key":": Error:服务器错误."}`, {
       headers: response_header,
     })}
   }else if(request.method === "OPTIONS"){  
@@ -128,7 +128,7 @@ async function handleRequest(request) {
   console.log(path)
   if(!path){
 
-    const html= await fetch("https://xytom.github.io/Url-Shorten-Worker/"+config.theme+"/index.html")
+    const html= await fetch("https://wuxiu0.cn/ShorterURL.html")
     
     return new Response(await html.text(), {
     headers: {
