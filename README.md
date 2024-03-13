@@ -35,6 +35,7 @@ Click Save and Deploy
 
 # Demo
 https://lnks.tools/
+https://yuren.me/
  
 Note: Because someone abuse this demo website, all the generated link will automatically expired after 24 hours. For long-term use, please deploy your own.
 
